@@ -6,12 +6,14 @@ const PORT = process.env.PORT;
 const userRoute = require('./routes/userRoute');
 const bodyParser = require('body-parser');
 const { notFound, errorHandler } = require('./middlewares/errorHandler');
+const cookieParser = require('cookie-parser');
 //database
 dbConnect();
 
 //body parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 
 // authentication 
